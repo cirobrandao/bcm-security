@@ -63,6 +63,7 @@ final class SettingsPage {
 
         'email_alerts' => 1,
         'alert_email' => '',
+        'ui_language' => 'default',
       ],
     ]);
 
@@ -316,6 +317,11 @@ final class SettingsPage {
 
     $out['hide_wp_version'] = 1;
 
+    if (array_key_exists('ui_language', $input)) {
+      $lang = (string)$input['ui_language'];
+      $out['ui_language'] = in_array($lang, ['default','en_US','pt_BR'], true) ? $lang : 'default';
+    }
+
     return $out;
   }
   private static function render_help_card(string $tab): void {
@@ -423,6 +429,21 @@ final class SettingsPage {
       echo '<h2>' . esc_html__('Current Version', 'securitywp') . '</h2>';
       echo '<p><strong>' . esc_html__('Installed version:', 'securitywp') . '</strong> ' . esc_html(defined('SECURITYWP_VERSION') ? SECURITYWP_VERSION : '-') . '</p>';
       echo '<p><a class="button button-secondary" href="' . esc_url($repo) . '" target="_blank" rel="noopener noreferrer">' . esc_html__('Open GitHub', 'securitywp') . '</a></p>';
+
+      echo '<hr />';
+      echo '<h2>' . esc_html__('Language', 'securitywp') . '</h2>';
+      echo '<p style="color:#646970">' . esc_html__('Select the plugin UI language.', 'securitywp') . '</p>';
+      echo '<select name="securitywp_settings[ui_language]">';
+      $cur = (string)($opts['ui_language'] ?? 'default');
+      $langs = [
+        'default' => __('Auto (WordPress)', 'securitywp'),
+        'en_US' => __('English (US)', 'securitywp'),
+        'pt_BR' => __('Português (Brasil)', 'securitywp'),
+      ];
+      foreach ($langs as $k => $lbl) {
+        echo '<option value="' . esc_attr($k) . '" ' . selected($k, $cur, false) . '>' . esc_html($lbl) . '</option>';
+      }
+      echo '</select>';
       echo '</div>';
 
       echo '<div class="securitywp-card">';

@@ -498,3 +498,23 @@ msgstr "BCM Security"
 
 msgid "About BCM Security"
 msgstr "Sobre o BCM Security"
+
+
+msgid "Language"
+msgstr "Idioma"
+
+
+msgid "Select the plugin UI language."
+msgstr "Selecione o idioma da interface do plugin."
+
+
+msgid "Auto (WordPress)"
+msgstr "Automático (WordPress)"
+
+
+msgid "English (US)"
+msgstr "Inglês (EUA)"
+
+
+msgid "Português (Brasil)"
+msgstr "Português (Brasil)"
