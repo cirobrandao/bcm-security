@@ -63,7 +63,6 @@ final class SettingsPage {
 
         'email_alerts' => 1,
         'alert_email' => '',
-        'ui_language' => 'default',
       ],
     ]);
 
@@ -316,11 +315,6 @@ final class SettingsPage {
     }
 
     $out['hide_wp_version'] = 1;
-
-    if (array_key_exists('ui_language', $input)) {
-      $lang = (string)$input['ui_language'];
-      $out['ui_language'] = in_array($lang, ['default','en_US','pt_BR'], true) ? $lang : 'default';
-    }
 
     return $out;
   }
