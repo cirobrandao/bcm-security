@@ -12,7 +12,7 @@ final class AboutPage {
     $contrib = defined('SECURITYWP_CONTRIBUTION_URL') ? SECURITYWP_CONTRIBUTION_URL : 'https://bcmnetwork.com.br/contribution';
 
     echo '<div class="wrap securitywp-wrap">';
-    echo '<h1>' . esc_html__('SecurityWP — Information & Updates', 'securitywp') . '</h1>';
+    echo '<h1>' . esc_html__('BCM Security — Information & Updates', 'securitywp') . '</h1>';
 
     echo '<div class="securitywp-grid">';
 

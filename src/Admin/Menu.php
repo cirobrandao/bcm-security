@@ -9,8 +9,8 @@ final class Menu {
   public function admin_menu(): void {
     // Dashboard
     add_menu_page(
-      __('SecurityWP', 'securitywp'),
-      __('SecurityWP', 'securitywp'),
+      __('BCM Security', 'securitywp'),
+      __('BCM Security', 'securitywp'),
       'manage_options',
       'securitywp',
       [DashboardPage::class, 'render_page'],

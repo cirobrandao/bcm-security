@@ -490,3 +490,15 @@ msgstr "O SecurityWP pode verificar atualizações via Releases do GitHub. Para 
 
 msgid "Open GitHub"
 msgstr "Abrir GitHub"
+
+
+msgid "BCM Security"
+msgstr "BCM Security"
+
+
+msgid "BCM Security — Information & Updates"
+msgstr "BCM Security — Informações e Atualizações"
+
+
+msgid "About BCM Security"
+msgstr "Sobre o BCM Security"

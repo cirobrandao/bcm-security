@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       SecurityWP
+ * Plugin Name:       BCM Security
  * Plugin URI:        https://github.com/cirobrandao/bcm-security
  * Description:       Hardening, login protection, REST/XML-RPC restrictions, integrity scanning, and alerts.
  * Version:           0.5.2
