@@ -319,27 +319,27 @@ final class SettingsPage {
     return $out;
   }
   private static function render_help_card(string $tab): void {
-    echo '<div class=\"securitywp-card\">';
+    echo '<div class="securitywp-card">';
 
     if ($tab === 'login') {
       echo '<h2>' . esc_html__('What this prevents', 'securitywp') . '</h2>';
-      echo '<ul style=\"list-style:disc; padding-left:18px\">';
+      echo '<ul style="list-style:disc; padding-left:18px">';
       echo '<li>' . esc_html__('Brute-force password guessing by limiting repeated login attempts.', 'securitywp') . '</li>';
       echo '<li>' . esc_html__('Unauthorized wp-admin access by restricting admin area to allowlisted IPs.', 'securitywp') . '</li>';
       echo '<li>' . esc_html__('Direct scanning of wp-login.php by optionally using a custom login URL.', 'securitywp') . '</li>';
       echo '</ul>';
     } elseif ($tab === 'xmlrpc') {
       echo '<h2>' . esc_html__('Why disable XML-RPC?', 'securitywp') . '</h2>';
-      echo '<p style=\"color:#646970\">' . esc_html__('XML-RPC is a legacy interface often abused for brute force and amplification. Disabling it reduces attack surface.', 'securitywp') . '</p>';
+      echo '<p style="color:#646970">' . esc_html__('XML-RPC is a legacy interface often abused for brute force and amplification. Disabling it reduces attack surface.', 'securitywp') . '</p>';
     } elseif ($tab === 'rest') {
       echo '<h2>' . esc_html__('REST hardening', 'securitywp') . '</h2>';
-      echo '<p style=\"color:#646970\">' . esc_html__('Prevents anonymous enumeration of users and reduces information leakage via REST endpoints.', 'securitywp') . '</p>';
+      echo '<p style="color:#646970">' . esc_html__('Prevents anonymous enumeration of users and reduces information leakage via REST endpoints.', 'securitywp') . '</p>';
     } elseif ($tab === 'integrity') {
       echo '<h2>' . esc_html__('Integrity scanner', 'securitywp') . '</h2>';
-      echo '<p style=\"color:#646970\">' . esc_html__('Detects unexpected file changes that may indicate malware or compromised deployments. Requires a baseline.', 'securitywp') . '</p>';
+      echo '<p style="color:#646970">' . esc_html__('Detects unexpected file changes that may indicate malware or compromised deployments. Requires a baseline.', 'securitywp') . '</p>';
     } elseif ($tab === 'alerts') {
       echo '<h2>' . esc_html__('Alerts', 'securitywp') . '</h2>';
-      echo '<p style=\"color:#646970\">' . esc_html__('Sends email notifications when important security events happen so you can react quickly.', 'securitywp') . '</p>';
+      echo '<p style="color:#646970">' . esc_html__('Sends email notifications when important security events happen so you can react quickly.', 'securitywp') . '</p>';
     }
 
     echo '</div>';
@@ -364,29 +364,29 @@ final class SettingsPage {
       $tab = 'login';
     }
 
-    echo '<div class=\"wrap securitywp-wrap\">';
+    echo '<div class="wrap securitywp-wrap">';
     echo '<h1>' . esc_html__('BCM Security Settings', 'securitywp') . '</h1>';
 
-    echo '<nav class=\"nav-tab-wrapper\" style=\"margin-bottom:12px\">';
+    echo '<nav class="nav-tab-wrapper" style="margin-bottom:12px">';
     foreach ($tabs as $k => $label) {
       $url = admin_url('admin.php?page=securitywp-settings&tab=' . $k);
       $cls = 'nav-tab' . ($k === $tab ? ' nav-tab-active' : '');
-      echo '<a class=\"' . esc_attr($cls) . '\" href=\"' . esc_url($url) . '\">' . esc_html($label) . '</a>';
+      echo '<a class="' . esc_attr($cls) . '" href="' . esc_url($url) . '">' . esc_html($label) . '</a>';
     }
     echo '</nav>';
 
-    echo '<form method=\"post\" action=\"options.php\">';
+    echo '<form method="post" action="options.php">';
     settings_fields('securitywp');
 
     // Track current tab to avoid resetting other tabs on save.
-    echo '<input type=\"hidden\" name=\"securitywp_settings[_tab]\" value=\"' . esc_attr($tab) . '\">';
+    echo '<input type="hidden" name="securitywp_settings[_tab]" value="' . esc_attr($tab) . '">';
 
     // Two-column layout for settings tabs
     if ($tab !== 'tools' && $tab !== 'updates') {
-      echo '<div class=\"securitywp-grid\">';
-      echo '<div class=\"securitywp-card\">';
+      echo '<div class="securitywp-grid">';
+      echo '<div class="securitywp-card">';
     } else {
-      echo '<div class=\"securitywp-card\">';
+      echo '<div class="securitywp-card">';
     }
 
     if ($tab === 'login') {
@@ -400,35 +400,35 @@ final class SettingsPage {
     } elseif ($tab === 'alerts') {
       do_settings_sections('securitywp_alerts');
     } elseif ($tab === 'tools') {
-      echo '<p style=\"color:#646970\">' . esc_html__('Generate the baseline and run integrity scans on-demand.', 'securitywp') . '</p>';
+      echo '<p style="color:#646970">' . esc_html__('Generate the baseline and run integrity scans on-demand.', 'securitywp') . '</p>';
 
       $baselineExists = is_array(get_option('securitywp_integrity_baseline', null));
-      echo '<div class=\"securitywp-row\">';
-      echo '<a href=\"#\" class=\"button button-secondary\" id=\"securitywp-baseline-btn\">' . esc_html__('Generate baseline', 'securitywp') . '</a>';
-      echo '<span class=\"securitywp-status\" id=\"securitywp-baseline-status\">' . esc_html($baselineExists ? __('Baseline exists', 'securitywp') : __('No baseline yet', 'securitywp')) . '</span>';
+      echo '<div class="securitywp-row">';
+      echo '<a href="#" class="button button-secondary" id="securitywp-baseline-btn">' . esc_html__('Generate baseline', 'securitywp') . '</a>';
+      echo '<span class="securitywp-status" id="securitywp-baseline-status">' . esc_html($baselineExists ? __('Baseline exists', 'securitywp') : __('No baseline yet', 'securitywp')) . '</span>';
       echo '</div>';
 
-      echo '<div style=\"height:10px\"></div>';
+      echo '<div style="height:10px"></div>';
 
-      echo '<div class=\"securitywp-row\">';
-      echo '<a href=\"#\" class=\"button button-secondary\" id=\"securitywp-scan-btn\">' . esc_html__('Run scan now', 'securitywp') . '</a>';
-      echo '<span class=\"securitywp-status\" id=\"securitywp-scan-status\">' . esc_html__('Idle', 'securitywp') . '</span>';
+      echo '<div class="securitywp-row">';
+      echo '<a href="#" class="button button-secondary" id="securitywp-scan-btn">' . esc_html__('Run scan now', 'securitywp') . '</a>';
+      echo '<span class="securitywp-status" id="securitywp-scan-status">' . esc_html__('Idle', 'securitywp') . '</span>';
       echo '</div>';
     } elseif ($tab === 'updates') {
-      echo '<p style=\"color:#646970\">' . esc_html__('Check for updates, view current version, and learn how to contribute.', 'securitywp') . '</p>';
+      echo '<p style="color:#646970">' . esc_html__('Check for updates, view current version, and learn how to contribute.', 'securitywp') . '</p>';
 
       $repo = defined('SECURITYWP_GITHUB_URL') ? SECURITYWP_GITHUB_URL : '#';
-      echo '<div class=\"securitywp-grid\">';
-      echo '<div class=\"securitywp-card\">';
+      echo '<div class="securitywp-grid">';
+      echo '<div class="securitywp-card">';
       echo '<h2>' . esc_html__('Current Version', 'securitywp') . '</h2>';
       echo '<p><strong>' . esc_html__('Installed version:', 'securitywp') . '</strong> ' . esc_html(defined('SECURITYWP_VERSION') ? SECURITYWP_VERSION : '-') . '</p>';
-      echo '<p><a class=\"button button-secondary\" href=\"' . esc_url($repo) . '\" target=\"_blank\" rel=\"noopener noreferrer\">' . esc_html__('Open GitHub', 'securitywp') . '</a></p>';
+      echo '<p><a class="button button-secondary" href="' . esc_url($repo) . '" target="_blank" rel="noopener noreferrer">' . esc_html__('Open GitHub', 'securitywp') . '</a></p>';
       echo '</div>';
 
-      echo '<div class=\"securitywp-card\">';
+      echo '<div class="securitywp-card">';
       echo '<h2>' . esc_html__('How updates work', 'securitywp') . '</h2>';
-      echo '<p style=\"color:#646970\">' . esc_html__('BCM Security checks updates via GitHub Releases. Publish a new Release with a semantic version tag (example: 0.5.3).', 'securitywp') . '</p>';
-      echo '<p style=\"color:#646970\">' . esc_html__('Then WordPress will show an update when it detects the newer version.', 'securitywp') . '</p>';
+      echo '<p style="color:#646970">' . esc_html__('BCM Security checks updates via GitHub Releases. Publish a new Release with a semantic version tag (example: 0.5.3).', 'securitywp') . '</p>';
+      echo '<p style="color:#646970">' . esc_html__('Then WordPress will show an update when it detects the newer version.', 'securitywp') . '</p>';
       echo '</div>';
       echo '</div>';
     }
@@ -446,10 +446,10 @@ final class SettingsPage {
 
     echo '</form>';
 
-    echo '<p style=\"margin-top:12px\">';
-    echo '<a class=\"button button-secondary\" href=\"' . esc_url(admin_url('admin.php?page=securitywp')) . '\">' . esc_html__('Back to Dashboard', 'securitywp') . '</a> ';
-    echo '<a class=\"button button-secondary\" href=\"' . esc_url(admin_url('admin.php?page=securitywp-events')) . '\">' . esc_html__('Security Events', 'securitywp') . '</a> ';
-    echo '<a class=\"button button-secondary\" href=\"' . esc_url(admin_url('admin.php?page=securitywp-about')) . '\">' . esc_html__('About', 'securitywp') . '</a>';
+    echo '<p style="margin-top:12px">';
+    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp')) . '">' . esc_html__('Back to Dashboard', 'securitywp') . '</a> ';
+    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp-events')) . '">' . esc_html__('Security Events', 'securitywp') . '</a> ';
+    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp-about')) . '">' . esc_html__('About', 'securitywp') . '</a>';
     echo '</p>';
 
     echo '</div>';
