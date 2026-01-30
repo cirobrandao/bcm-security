@@ -1,0 +1,492 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SecurityWP 0.2.1\n"
+"POT-Creation-Date: 2026-01-30 00:00+0000\n"
+"PO-Revision-Date: 2026-01-30 00:00+0000\n"
+"Last-Translator: cirobrandao\n"
+"Language-Team: pt_BR\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "SecurityWP"
+msgstr "SecurityWP"
+
+msgid "Settings"
+msgstr "Configurações"
+
+msgid "Tools"
+msgstr "Ferramentas"
+
+msgid "Save changes"
+msgstr "Salvar alterações"
+
+msgid ""
+"Use these tools to generate the baseline and run integrity scans on-demand."
+msgstr ""
+"Use estas ferramentas para gerar a baseline e executar o scanner de "
+"integridade sob demanda."
+
+msgid "Generate baseline"
+msgstr "Gerar baseline"
+
+msgid "Run scan now"
+msgstr "Executar scanner agora"
+
+msgid "Baseline exists"
+msgstr "Baseline existente"
+
+msgid "No baseline yet"
+msgstr "Sem baseline ainda"
+
+msgid "Idle"
+msgstr "Parado"
+
+msgid "Recent log"
+msgstr "Log recente"
+
+msgid "Tip: enable Email alerts to be notified when changes are detected."
+msgstr ""
+"Dica: habilite Alertas por e-mail para ser notificado quando mudanças forem "
+"detectadas."
+
+msgid "Generating baseline… this can take a moment."
+msgstr "Gerando baseline… isso pode levar alguns instantes."
+
+msgid "Baseline generated in %s seconds."
+msgstr "Baseline gerada em %s segundos."
+
+msgid "Running scan… this can take a moment."
+msgstr "Executando scanner… isso pode levar alguns instantes."
+
+msgid "Scan finished in %s seconds."
+msgstr "Scanner finalizado em %s segundos."
+
+msgid "Files hashed: %d"
+msgstr "Arquivos hash: %d"
+
+msgid "Changed: %d, Missing: %d, New: %d"
+msgstr "Alterados: %d, Ausentes: %d, Novos: %d"
+
+msgid "Integrity changes detected"
+msgstr "Mudanças de integridade detectadas"
+
+msgid "Forbidden"
+msgstr "Proibido"
+
+msgid "Login blocked"
+msgstr "Login bloqueado"
+
+msgid "Too many login attempts. Try again in %d minute(s)."
+msgstr "Muitas tentativas de login. Tente novamente em %d minuto(s)."
+
+msgid "Login Protection"
+msgstr "Proteção de Login"
+
+msgid "Rate limit and temporary IP blocking for repeated login failures."
+msgstr ""
+"Limite de tentativas e bloqueio temporário de IP para falhas repetidas de "
+"login."
+
+msgid "Enable login rate limiting"
+msgstr "Habilitar limite de tentativas de login"
+
+msgid "Max failed attempts"
+msgstr "Máx. tentativas falhas"
+
+msgid "Window (seconds)"
+msgstr "Janela (segundos)"
+
+msgid "Base block (seconds)"
+msgstr "Bloqueio base (segundos)"
+
+msgid "XML-RPC"
+msgstr "XML-RPC"
+
+msgid "Disable XML-RPC to reduce attack surface (recommended for most sites)."
+msgstr ""
+"Desative o XML-RPC para reduzir a superfície de ataque (recomendado para a "
+"maioria dos sites)."
+
+msgid "Disable XML-RPC"
+msgstr "Desativar XML-RPC"
+
+msgid "REST API Hardening"
+msgstr "Endurecimento da REST API"
+
+msgid "Restrict/Hide sensitive REST API endpoints for anonymous users."
+msgstr ""
+"Restringe/oculta endpoints sensíveis da REST API para usuários anônimos."
+
+msgid "Enable REST hardening"
+msgstr "Habilitar endurecimento da REST"
+
+msgid "Block anonymous access to /wp/v2/users"
+msgstr "Bloquear acesso anônimo a /wp/v2/users"
+
+msgid "Hide /wp/v2/users from endpoint discovery"
+msgstr "Ocultar /wp/v2/users da descoberta de endpoints"
+
+msgid "Integrity Scanner"
+msgstr "Scanner de Integridade"
+
+msgid ""
+"Daily scan for changes in plugins/themes and a few critical core files. "
+"Requires a baseline."
+msgstr ""
+"Scanner diário de mudanças em plugins/temas e alguns arquivos críticos do "
+"core. Requer uma baseline."
+
+msgid "Enable integrity scanner"
+msgstr "Habilitar scanner de integridade"
+
+msgid "Auto-update baseline after alert (use with caution)"
+msgstr "Atualizar baseline automaticamente após alerta (use com cuidado)"
+
+msgid "Alerts"
+msgstr "Alertas"
+
+msgid "Email/log alerts when suspicious changes are detected."
+msgstr "Alertas por e-mail/log quando mudanças suspeitas forem detectadas."
+
+msgid "Enable email alerts"
+msgstr "Habilitar alertas por e-mail"
+
+msgid "Alert email (optional)"
+msgstr "E-mail de alerta (opcional)"
+
+msgid "Security Events"
+msgstr "Eventos de Segurança"
+
+msgid "About"
+msgstr "Sobre"
+
+msgid "About SecurityWP"
+msgstr "Sobre o SecurityWP"
+
+msgid "View Security Events"
+msgstr "Ver Eventos de Segurança"
+
+msgid "About / Links"
+msgstr "Sobre / Links"
+
+msgid "Allowlist IPs (one per line)"
+msgstr "IPs na allowlist (um por linha)"
+
+msgid "One IP per line. Only exact IPs are supported for now."
+msgstr "Um IP por linha. Por enquanto, apenas IPs exatos são suportados."
+
+msgid "Tip: add your own IP/VPN to the allowlist to avoid being locked out."
+msgstr ""
+"Dica: adicione seu próprio IP/VPN na allowlist para evitar ficar bloqueado."
+
+msgid ""
+"First-time setup: generate a baseline, then run a scan to verify everything "
+"is clean."
+msgstr ""
+"Primeira configuração: gere uma baseline e depois execute um scanner para "
+"verificar se está tudo limpo."
+
+msgid "Alerts & Links"
+msgstr "Alertas e Links"
+
+msgid "Platform URL"
+msgstr "URL da plataforma"
+
+msgid "Contribution link"
+msgstr "Link de doação PayPal"
+
+msgid "Bitcoin (BTC) address"
+msgstr "Endereço Bitcoin (BTC)"
+
+msgid "Links"
+msgstr "Links"
+
+msgid "GitHub Repository"
+msgstr "Repositório no GitHub"
+
+msgid "Future platform (under development)"
+msgstr "Plataforma futura (em desenvolvimento)"
+
+msgid "Donations"
+msgstr "Doações"
+
+msgid "If this plugin helps you, consider supporting development:"
+msgstr "Se este plugin te ajuda, considere apoiar o desenvolvimento:"
+
+msgid "Bitcoin (BTC):"
+msgstr "Bitcoin (BTC):"
+
+msgid "PayPal:"
+msgstr "PayPal:"
+
+msgid "Not configured yet"
+msgstr "Ainda não configurado"
+
+msgid ""
+"You can configure donation and platform links under Settings → SecurityWP → "
+"Alerts."
+msgstr ""
+"Você pode configurar links de doação e da plataforma em Configurações → "
+"SecurityWP → Alertas."
+
+msgid "Back to Settings"
+msgstr "Voltar para Configurações"
+
+msgid ""
+"This page shows recent security-related events detected by SecurityWP. Use "
+"filters to find what you need."
+msgstr ""
+"Esta página mostra eventos recentes relacionados à segurança detectados pelo "
+"SecurityWP. Use os filtros para encontrar o que precisa."
+
+msgid "Log cleared."
+msgstr "Log limpo."
+
+msgid "Level"
+msgstr "Nível"
+
+msgid "All"
+msgstr "Todos"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Filter"
+msgstr "Filtrar"
+
+msgid "Clear log"
+msgstr "Limpar log"
+
+msgid "Recent log entries"
+msgstr "Entradas recentes do log"
+
+msgid "No entries found."
+msgstr "Nenhuma entrada encontrada."
+
+msgid "Time"
+msgstr "Hora"
+
+msgid "Message"
+msgstr "Mensagem"
+
+msgid "Context"
+msgstr "Contexto"
+
+msgid ""
+"Configure hardening features below. Hover the descriptions to understand "
+"what each option does. Recommended defaults are enabled for most sites."
+msgstr ""
+"Configure os recursos de proteção abaixo. Use as descrições para entender o "
+"que cada opção faz. Os padrões recomendados ficam habilitados para a maioria "
+"dos sites."
+
+msgid "Contribution"
+msgstr "Contribuição"
+
+msgid "You can configure links under Settings → SecurityWP → Alerts & Links."
+msgstr ""
+"Você pode configurar links em Configurações → SecurityWP → Alertas e Links."
+
+msgid "Platform"
+msgstr "Plataforma"
+
+msgid ""
+"These links are managed by the plugin authors and cannot be changed from the "
+"WordPress admin."
+msgstr ""
+"Estes links são gerenciados pelos autores do plugin e não podem ser "
+"alterados pelo admin do WordPress."
+
+msgid "Dashboard"
+msgstr "Painel"
+
+msgid "Security overview"
+msgstr "Visão geral de segurança"
+
+msgid "Score: %d/100"
+msgstr "Pontuação: %d/100"
+
+msgid "Check"
+msgstr "Verificação"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Needs attention"
+msgstr "Precisa de atenção"
+
+msgid "Configure settings"
+msgstr "Configurar"
+
+msgid "SecurityWP Settings"
+msgstr "Configurações do SecurityWP"
+
+msgid "Back to Dashboard"
+msgstr "Voltar ao Painel"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "REST"
+msgstr "REST"
+
+msgid "Integrity"
+msgstr "Integridade"
+
+msgid "Brute-force protection for wp-login."
+msgstr "Proteção contra força bruta no wp-login."
+
+msgid "Disable legacy XML-RPC to reduce attack surface."
+msgstr "Desative o XML-RPC legado para reduzir a superfície de ataque."
+
+msgid "Restrict sensitive REST API endpoints for anonymous users."
+msgstr "Restringe endpoints sensíveis da REST API para usuários anônimos."
+
+msgid "Detect unexpected file changes. Requires a baseline."
+msgstr "Detecta mudanças inesperadas de arquivos. Requer uma baseline."
+
+msgid "Email notifications for important events."
+msgstr "Notificações por e-mail para eventos importantes."
+
+msgid "Generate the baseline and run integrity scans on-demand."
+msgstr "Gere a baseline e execute scanners de integridade sob demanda."
+
+msgid "System"
+msgstr "Sistema"
+
+msgid "WordPress version:"
+msgstr "Versão do WordPress:"
+
+msgid "PHP version:"
+msgstr "Versão do PHP:"
+
+msgid "Last integrity scan:"
+msgstr "Último scanner de integridade:"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "XML-RPC disabled"
+msgstr "XML-RPC desativado"
+
+msgid "REST hardening enabled"
+msgstr "Endurecimento REST habilitado"
+
+msgid "Login rate limiting enabled"
+msgstr "Limite de tentativas de login habilitado"
+
+msgid "Integrity baseline exists"
+msgstr "Baseline de integridade existente"
+
+msgid "Recommended for most sites."
+msgstr "Recomendado para a maioria dos sites."
+
+msgid "Reduces exposure of sensitive endpoints to anonymous users."
+msgstr "Reduz a exposição de endpoints sensíveis para usuários anônimos."
+
+msgid "Helps mitigate brute-force attacks."
+msgstr "Ajuda a mitigar ataques de força bruta."
+
+msgid "Generate a baseline to enable meaningful integrity scans."
+msgstr "Gere uma baseline para permitir scanners de integridade úteis."
+
+msgid "Admin login slug (hides wp-login.php)"
+msgstr "Slug de login do admin (oculta o wp-login.php)"
+
+msgid "User login/register slug (hides wp-login.php)"
+msgstr "Slug de login/cadastro do usuário (oculta o wp-login.php)"
+
+msgid "Allowlist IPs for wp-admin (one per line)"
+msgstr "IPs permitidos no wp-admin (um por linha)"
+
+msgid "Access denied: your IP is not allowed to access wp-admin."
+msgstr "Acesso negado: seu IP não tem permissão para acessar o wp-admin."
+
+msgid "Not found."
+msgstr "Não encontrado."
+
+msgid "Not found"
+msgstr "Não encontrado"
+
+msgid ""
+"Login protection, admin access restriction, and (optional) custom login URL."
+msgstr ""
+"Proteção de login, restrição de acesso ao admin e (opcional) URL de login "
+"personalizada."
+
+msgid ""
+"Important: the custom login URL requires pretty permalinks (Settings → "
+"Permalinks)."
+msgstr ""
+"Importante: a URL de login personalizada requer links permanentes ativos "
+"(Configurações → Links permanentes)."
+
+msgid "Allowlist IPs for rate limit (one per line)"
+msgstr "IPs permitidos para rate limit (um por linha)"
+
+msgid "Max attempts"
+msgstr "Máx. tentativas"
+
+msgid "Window (sec)"
+msgstr "Janela (seg)"
+
+msgid "Block (sec)"
+msgstr "Bloqueio (seg)"
+
+msgid "Custom login slug (hides wp-login.php)"
+msgstr "Slug de login personalizado (oculta o wp-login.php)"
+
+msgid "Examples: painel, login-seguro, entrar-xyz"
+msgstr "Exemplos: painel, login-seguro, entrar-xyz"
+
+msgid ""
+"After saving, go to Settings → Permalinks and click Save (once) if the slug "
+"does not work immediately."
+msgstr ""
+"Após salvar, vá em Configurações → Links permanentes e clique em Salvar (uma "
+"vez) se o slug não funcionar de imediato."
+
+
+msgid "SecurityWP — Information & Updates"
+msgstr "SecurityWP — Informações e Atualizações"
+
+
+msgid "Installed version:"
+msgstr "Versão instalada:"
+
+
+msgid "This page is meant to help you keep the plugin updated and collaborate with the project."
+msgstr "Esta página ajuda você a manter o plugin atualizado e colaborar com o projeto."
+
+
+msgid "Collaborate"
+msgstr "Colabore"
+
+
+msgid "GitHub Repository (issues / PRs)"
+msgstr "Repositório no GitHub (issues / PRs)"
+
+
+msgid "Support the project (donate / sponsor)"
+msgstr "Apoie o projeto (doar / patrocinar)"
+
+
+msgid "Platform / Services"
+msgstr "Plataforma / Serviços"
+
+
+msgid "Updates"
+msgstr "Atualizações"
+
+
+msgid "SecurityWP can check for updates via GitHub Releases. To distribute updates through WordPress update UI, publish a new Release with a semantic version tag (example: 0.5.3)."
+msgstr "O SecurityWP pode verificar atualizações via Releases do GitHub. Para distribuir atualizações pela interface do WordPress, publique um novo Release com tag de versão semântica (ex.: 0.5.3)."
+
+
+msgid "Open GitHub"
+msgstr "Abrir GitHub"
