@@ -10,3 +10,15 @@
 .securitywp-status--error{border-color:#dc3232;background:#fde8e8}
 .securitywp-log{max-height:320px;overflow:auto;background:#0b1020;color:#d6deeb;border-radius:8px;padding:12px}
 .securitywp-log code{color:inherit}
+
+/* Per-field help layout */
+.securitywp-field{display:flex;gap:16px;align-items:flex-start}
+@media (max-width: 900px){.securitywp-field{display:block}}
+.securitywp-field__control{flex:1;min-width:320px}
+.securitywp-field__help{width:360px;max-width:100%;background:#f6f7f7;border:1px solid #ccd0d4;border-radius:8px;padding:12px;color:#1d2327}
+.securitywp-field__help h3{margin:0 0 8px 0;font-size:13px}
+.securitywp-field__help p{margin:0;color:#646970}
+.securitywp-field__help ul{margin:8px 0 0 18px;color:#1d2327}
+
+/* Tools table */
+.securitywp-tools-table td{vertical-align:middle}

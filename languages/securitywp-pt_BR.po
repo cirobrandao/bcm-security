@@ -518,3 +518,131 @@ msgstr "Inglês (EUA)"
 
 msgid "Português (Brasil)"
 msgstr "Português (Brasil)"
+
+
+msgid "Rate limiting"
+msgstr "Limitação de tentativas"
+
+
+msgid "Slows down brute-force login attacks by blocking repeated failed attempts."
+msgstr "Reduz ataques de força bruta bloqueando tentativas repetidas."
+
+
+msgid "Prevents password guessing bots."
+msgstr "Evita bots de adivinhação de senha."
+
+
+msgid "Reduces login endpoint abuse."
+msgstr "Reduz abuso do endpoint de login."
+
+
+msgid "If your IP is listed here, the rate limit will not apply to you."
+msgstr "Se seu IP estiver aqui, a limitação não será aplicada para você."
+
+
+msgid "Use this for your own office/home IP."
+msgstr "Use para seu IP de casa/escritório."
+
+
+msgid "Do not add broad ranges."
+msgstr "Não adicione faixas amplas."
+
+
+msgid "Threshold"
+msgstr "Limite"
+
+
+msgid "How many failed attempts are allowed before a temporary block."
+msgstr "Quantas tentativas falhas são permitidas antes do bloqueio temporário."
+
+
+msgid "Window"
+msgstr "Janela"
+
+
+msgid "Time window used to count failed attempts."
+msgstr "Janela de tempo usada para contar tentativas falhas."
+
+
+msgid "Block duration"
+msgstr "Duração do bloqueio"
+
+
+msgid "How long the IP is blocked after exceeding the limit."
+msgstr "Quanto tempo o IP fica bloqueado após exceder o limite."
+
+
+msgid "Admin access"
+msgstr "Acesso ao admin"
+
+
+msgid "Restricts access to /wp-admin for non-allowlisted IPs."
+msgstr "Restringe o acesso ao /wp-admin para IPs não permitidos."
+
+
+msgid "Prevents unauthorized admin access."
+msgstr "Evita acesso não autorizado ao admin."
+
+
+msgid "Reduces attack surface."
+msgstr "Reduz a superfície de ataque."
+
+
+msgid "User enumeration"
+msgstr "Enumeração de usuários"
+
+
+msgid "Prevents bots from listing users via the REST API."
+msgstr "Impede bots de listar usuários via API REST."
+
+
+msgid "Endpoint discovery"
+msgstr "Descoberta de endpoints"
+
+
+msgid "Removes the users endpoint from REST index discovery for anonymous visitors."
+msgstr "Remove o endpoint de usuários da descoberta do índice REST para visitantes anônimos."
+
+
+msgid "Notifications"
+msgstr "Notificações"
+
+
+msgid "Sends email notifications when important security events happen."
+msgstr "Envia notificações por email quando eventos importantes acontecem."
+
+
+msgid "Recipient"
+msgstr "Destinatário"
+
+
+msgid "Where alerts will be sent. Leave empty to use the site admin email."
+msgstr "Para onde os alertas serão enviados. Deixe vazio para usar o email do administrador do site."
+
+
+msgid "Integrity tools: generate a baseline and run on-demand scans."
+msgstr "Ferramentas de integridade: gerar baseline e executar varreduras sob demanda."
+
+
+msgid "Action"
+msgstr "Ação"
+
+
+msgid "Run"
+msgstr "Executar"
+
+
+msgid "Creates a snapshot of current files for future comparisons."
+msgstr "Cria um retrato dos arquivos atuais para comparações futuras."
+
+
+msgid "Compares current files with baseline and reports changes."
+msgstr "Compara os arquivos atuais com o baseline e reporta mudanças."
+
+
+msgid "What this prevents"
+msgstr "O que isso previne"
+
+
+msgid "Integrity scanning helps detect suspicious file changes (malware, backdoors, unexpected edits)."
+msgstr "A varredura de integridade ajuda a detectar alterações suspeitas de arquivos (malware, backdoors, edições inesperadas)."

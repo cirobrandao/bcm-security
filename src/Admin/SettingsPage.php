@@ -73,18 +73,18 @@ final class SettingsPage {
     }, 'securitywp_login');
 
     // Protection / rate limit
-    $this->add_checkbox('login_rate_limit', __('Enable login rate limiting', 'securitywp'), 'securitywp_login', self::SEC_LOGIN);
+    $this->add_checkbox('login_rate_limit', __('Enable login rate limiting', 'securitywp'), 'securitywp_login', self::SEC_LOGIN, null, __('Rate limiting', 'securitywp'), __('Slows down brute-force login attacks by blocking repeated failed attempts.', 'securitywp'), [__('Prevents password guessing bots.', 'securitywp'), __('Reduces login endpoint abuse.', 'securitywp')]);
 
     // Keep IP allowlist textarea but it’s only used when rate limit is enabled.
-    $this->add_textarea('login_allowlist_ips', __('Allowlist IPs for rate limit (one per line)', 'securitywp'), 'securitywp_login', self::SEC_LOGIN);
+    $this->add_textarea('login_allowlist_ips', __('Allowlist IPs for rate limit (one per line)', 'securitywp'), 'securitywp_login', self::SEC_LOGIN, __('Allowlist', 'securitywp'), __('If your IP is listed here, the rate limit will not apply to you.', 'securitywp'), [__('Use this for your own office/home IP.', 'securitywp'), __('Do not add broad ranges.', 'securitywp')]);
 
     // Compact numeric fields: small-text already; keep them.
-    $this->add_number('login_max_attempts', __('Max attempts', 'securitywp'), 0, 50, 'securitywp_login', self::SEC_LOGIN, 'login_rate_limit');
-    $this->add_number('login_window_sec', __('Window (sec)', 'securitywp'), 0, 86400, 'securitywp_login', self::SEC_LOGIN, 'login_rate_limit');
-    $this->add_number('login_block_sec', __('Block (sec)', 'securitywp'), 0, 86400, 'securitywp_login', self::SEC_LOGIN, 'login_rate_limit');
+    $this->add_number('login_max_attempts', __('Max attempts', 'securitywp'), 0, 50, 'securitywp_login', self::SEC_LOGIN, 'login_rate_limit', __('Threshold', 'securitywp'), __('How many failed attempts are allowed before a temporary block.', 'securitywp'));
+    $this->add_number('login_window_sec', __('Window (sec)', 'securitywp'), 0, 86400, 'securitywp_login', self::SEC_LOGIN, 'login_rate_limit', __('Window', 'securitywp'), __('Time window used to count failed attempts.', 'securitywp'));
+    $this->add_number('login_block_sec', __('Block (sec)', 'securitywp'), 0, 86400, 'securitywp_login', self::SEC_LOGIN, 'login_rate_limit', __('Block duration', 'securitywp'), __('How long the IP is blocked after exceeding the limit.', 'securitywp'));
 
     // Admin allowlist (wp-admin)
-    $this->add_textarea('admin_allowlist_ips', __('Allowlist IPs for wp-admin (one per line)', 'securitywp'), 'securitywp_login', self::SEC_LOGIN);
+    $this->add_textarea('admin_allowlist_ips', __('Allowlist IPs for wp-admin (one per line)', 'securitywp'), 'securitywp_login', self::SEC_LOGIN, __('Admin access', 'securitywp'), __('Restricts access to /wp-admin for non-allowlisted IPs.', 'securitywp'), [__('Prevents unauthorized admin access.', 'securitywp'), __('Reduces attack surface.', 'securitywp')]);
 
     // Custom login slug (single slug for both admin + users)
     $this->add_text_with_placeholder(
@@ -99,36 +99,58 @@ final class SettingsPage {
     add_settings_section(self::SEC_XMLRPC, '', function () {
       echo '<p style="color:#646970">' . esc_html__('Disable legacy XML-RPC to reduce attack surface.', 'securitywp') . '</p>';
     }, 'securitywp_xmlrpc');
-    $this->add_checkbox('disable_xmlrpc', __('Disable XML-RPC', 'securitywp'), 'securitywp_xmlrpc', self::SEC_XMLRPC);
+    $this->add_checkbox('disable_xmlrpc', __('Disable XML-RPC', 'securitywp'), 'securitywp_xmlrpc', self::SEC_XMLRPC, null, __('XML-RPC', 'securitywp'), __('XML-RPC is a legacy interface frequently abused by bots. Disabling reduces attack surface.', 'securitywp'));
 
     // REST
     add_settings_section(self::SEC_REST, '', function () {
       echo '<p style="color:#646970">' . esc_html__('Restrict sensitive REST API endpoints for anonymous users.', 'securitywp') . '</p>';
     }, 'securitywp_rest');
-    $this->add_checkbox('rest_hardening', __('Enable REST hardening', 'securitywp'), 'securitywp_rest', self::SEC_REST);
-    $this->add_checkbox('rest_block_users', __('Block anonymous access to /wp/v2/users', 'securitywp'), 'securitywp_rest', self::SEC_REST, 'rest_hardening');
-    $this->add_checkbox('rest_hide_users', __('Hide /wp/v2/users from endpoint discovery', 'securitywp'), 'securitywp_rest', self::SEC_REST, 'rest_hardening');
+    $this->add_checkbox('rest_hardening', __('Enable REST hardening', 'securitywp'), 'securitywp_rest', self::SEC_REST, null, __('REST hardening', 'securitywp'), __('Reduces information leakage and blocks anonymous enumeration endpoints.', 'securitywp'));
+    $this->add_checkbox('rest_block_users', __('Block anonymous access to /wp/v2/users', 'securitywp'), 'securitywp_rest', self::SEC_REST, 'rest_hardening', __('User enumeration', 'securitywp'), __('Prevents bots from listing users via the REST API.', 'securitywp'));
+    $this->add_checkbox('rest_hide_users', __('Hide /wp/v2/users from endpoint discovery', 'securitywp'), 'securitywp_rest', self::SEC_REST, 'rest_hardening', __('Endpoint discovery', 'securitywp'), __('Removes the users endpoint from REST index discovery for anonymous visitors.', 'securitywp'));
 
     // Integrity
     add_settings_section(self::SEC_INTEGRITY, '', function () {
       echo '<p style="color:#646970">' . esc_html__('Detect unexpected file changes. Requires a baseline.', 'securitywp') . '</p>';
     }, 'securitywp_integrity');
-    $this->add_checkbox('integrity_scanner', __('Enable integrity scanner', 'securitywp'), 'securitywp_integrity', self::SEC_INTEGRITY);
-    $this->add_checkbox('integrity_auto_update_baseline', __('Auto-update baseline after alert (use with caution)', 'securitywp'), 'securitywp_integrity', self::SEC_INTEGRITY, 'integrity_scanner');
+    $this->add_checkbox('integrity_scanner', __('Enable integrity scanner', 'securitywp'), 'securitywp_integrity', self::SEC_INTEGRITY, null, __('Integrity scanner', 'securitywp'), __('Detects unexpected file changes that may indicate malware or a compromised site.', 'securitywp'));
+    $this->add_checkbox('integrity_auto_update_baseline', __('Auto-update baseline after alert (use with caution)', 'securitywp'), 'securitywp_integrity', self::SEC_INTEGRITY, 'integrity_scanner', __('Auto baseline', 'securitywp'), __('If enabled, the baseline is updated automatically after an alert. Use only if you trust your deployment pipeline.', 'securitywp'));
 
     // Alerts
     add_settings_section(self::SEC_ALERTS, '', function () {
       echo '<p style="color:#646970">' . esc_html__('Email notifications for important events.', 'securitywp') . '</p>';
     }, 'securitywp_alerts');
-    $this->add_checkbox('email_alerts', __('Enable email alerts', 'securitywp'), 'securitywp_alerts', self::SEC_ALERTS);
-    $this->add_text('alert_email', __('Alert email (optional)', 'securitywp'), 'securitywp_alerts', self::SEC_ALERTS, 'email_alerts');
+    $this->add_checkbox('email_alerts', __('Enable email alerts', 'securitywp'), 'securitywp_alerts', self::SEC_ALERTS, null, __('Notifications', 'securitywp'), __('Sends email notifications when important security events happen.', 'securitywp'));
+    $this->add_text('alert_email', __('Alert email (optional)', 'securitywp'), 'securitywp_alerts', self::SEC_ALERTS, 'email_alerts', __('Recipient', 'securitywp'), __('Where alerts will be sent. Leave empty to use the site admin email.', 'securitywp'));
   }
 
-  private function add_checkbox(string $key, string $label, string $page, string $section, ?string $dependsOnKey = null): void {
+    private static function render_field_help(?string $title, ?string $body, array $bullets): void {
+    if (!$title && !$body && !$bullets) {
+      return;
+    }
+
+    echo '<div class="securitywp-field__help">';
+    if ($title) {
+      echo '<h3>' . esc_html($title) . '</h3>';
+    }
+    if ($body) {
+      echo '<p>' . esc_html($body) . '</p>';
+    }
+    if ($bullets) {
+      echo '<ul>';
+      foreach ($bullets as $b) {
+        echo '<li>' . esc_html($b) . '</li>';
+      }
+      echo '</ul>';
+    }
+    echo '</div>';
+  }
+
+private function add_checkbox(string $key, string $label, string $page, string $section, ?string $dependsOnKey = null, ?string $helpTitle = null, ?string $helpBody = null, array $helpBullets = []): void {
     add_settings_field(
       'securitywp_' . $key,
       $label,
-      function () use ($key, $dependsOnKey) {
+      function () use ($key, $dependsOnKey, $helpTitle, $helpBody, $helpBullets) {
         $opts = get_option(self::OPTION_KEY, []);
         $val = !empty($opts[$key]) ? 1 : 0;
 
@@ -137,6 +159,8 @@ final class SettingsPage {
           $depAttr = ' data-securitywp-depends-on="' . esc_attr($dependsOnKey) . '"';
         }
 
+        echo '<div class="securitywp-field">';
+        echo '<div class="securitywp-field__control">';
         printf(
           '<label><input type="checkbox" name="%s[%s]" value="1" %s%s></label>',
           esc_attr(self::OPTION_KEY),
@@ -144,17 +168,23 @@ final class SettingsPage {
           checked(1, $val, false),
           $depAttr
         );
+        echo '</div>';
+        self::render_field_help($helpTitle, $helpBody, $helpBullets);
+        echo '</div>';
+        echo '</div>';
+        self::render_field_help($helpTitle, $helpBody, $helpBullets);
+        echo '</div>';
       },
       $page,
       $section
     );
   }
 
-  private function add_number(string $key, string $label, int $min, int $max, string $page, string $section, ?string $dependsOnKey = null): void {
+  private function add_number(string $key, string $label, int $min, int $max, string $page, string $section, ?string $dependsOnKey = null, ?string $helpTitle = null, ?string $helpBody = null, array $helpBullets = []): void {
     add_settings_field(
       'securitywp_' . $key,
       $label,
-      function () use ($key, $min, $max, $dependsOnKey) {
+      function () use ($key, $min, $max, $dependsOnKey, $helpTitle, $helpBody, $helpBullets) {
         $opts = get_option(self::OPTION_KEY, []);
         $val = isset($opts[$key]) ? (string)$opts[$key] : '';
 
@@ -163,6 +193,8 @@ final class SettingsPage {
           $depAttr = ' data-securitywp-depends-on="' . esc_attr($dependsOnKey) . '"';
         }
 
+        echo '<div class="securitywp-field">';
+        echo '<div class="securitywp-field__control">';
         printf(
           '<input type="number" name="%s[%s]" value="%s" min="%d" max="%d" class="small-text"%s>',
           esc_attr(self::OPTION_KEY),
@@ -172,17 +204,23 @@ final class SettingsPage {
           $max,
           $depAttr
         );
+        echo '</div>';
+        self::render_field_help($helpTitle, $helpBody, $helpBullets);
+        echo '</div>';
+        echo '</div>';
+        self::render_field_help($helpTitle, $helpBody, $helpBullets);
+        echo '</div>';
       },
       $page,
       $section
     );
   }
 
-  private function add_text(string $key, string $label, string $page, string $section, ?string $dependsOnKey = null): void {
+  private function add_text(string $key, string $label, string $page, string $section, ?string $dependsOnKey = null, ?string $helpTitle = null, ?string $helpBody = null, array $helpBullets = []): void {
     add_settings_field(
       'securitywp_' . $key,
       $label,
-      function () use ($key, $dependsOnKey) {
+      function () use ($key, $dependsOnKey, $helpTitle, $helpBody, $helpBullets) {
         $opts = get_option(self::OPTION_KEY, []);
         $val = isset($opts[$key]) ? (string)$opts[$key] : '';
 
@@ -191,6 +229,8 @@ final class SettingsPage {
           $depAttr = ' data-securitywp-depends-on="' . esc_attr($dependsOnKey) . '"';
         }
 
+        echo '<div class="securitywp-field">';
+        echo '<div class="securitywp-field__control">';
         printf(
           '<input type="text" name="%s[%s]" value="%s" class="regular-text"%s>',
           esc_attr(self::OPTION_KEY),
@@ -198,6 +238,9 @@ final class SettingsPage {
           esc_attr($val),
           $depAttr
         );
+        echo '</div>';
+        self::render_field_help($helpTitle, $helpBody, $helpBullets);
+        echo '</div>';
       },
       $page,
       $section
@@ -227,14 +270,16 @@ final class SettingsPage {
     );
   }
 
-  private function add_textarea(string $key, string $label, string $page, string $section): void {
+  private function add_textarea(string $key, string $label, string $page, string $section, ?string $helpTitle = null, ?string $helpBody = null, array $helpBullets = []): void {
     add_settings_field(
       'securitywp_' . $key,
       $label,
-      function () use ($key) {
+      function () use ($key, $helpTitle, $helpBody, $helpBullets) {
         $opts = get_option(self::OPTION_KEY, []);
         $val = isset($opts[$key]) ? (string)$opts[$key] : '';
 
+        echo '<div class="securitywp-field">';
+        echo '<div class="securitywp-field__control">';
         printf(
           '<textarea name="%s[%s]" rows="4" class="large-text code" placeholder="%s">%s</textarea><p class="description">%s</p>',
           esc_attr(self::OPTION_KEY),
@@ -243,6 +288,9 @@ final class SettingsPage {
           esc_textarea($val),
           esc_html__('One IP per line. Only exact IPs are supported for now.', 'securitywp')
         );
+        echo '</div>';
+        self::render_field_help($helpTitle, $helpBody, $helpBullets);
+        echo '</div>';
       },
       $page,
       $section
@@ -400,19 +448,29 @@ final class SettingsPage {
     } elseif ($tab === 'alerts') {
       do_settings_sections('securitywp_alerts');
     } elseif ($tab === 'tools') {
-      echo '<p style="color:#646970">' . esc_html__('Generate the baseline and run integrity scans on-demand.', 'securitywp') . '</p>';
+      echo '<p style="color:#646970">' . esc_html__('Integrity tools: generate a baseline and run on-demand scans.', 'securitywp') . '</p>';
 
       $baselineExists = is_array(get_option('securitywp_integrity_baseline', null));
-      echo '<div class="securitywp-row">';
-      echo '<a href="#" class="button button-secondary" id="securitywp-baseline-btn">' . esc_html__('Generate baseline', 'securitywp') . '</a>';
-      echo '<span class="securitywp-status" id="securitywp-baseline-status">' . esc_html($baselineExists ? __('Baseline exists', 'securitywp') : __('No baseline yet', 'securitywp')) . '</span>';
-      echo '</div>';
 
-      echo '<div style="height:10px"></div>';
+      echo '<table class="widefat striped securitywp-tools-table"><thead><tr><th>' . esc_html__('Action', 'securitywp') . '</th><th>' . esc_html__('Status', 'securitywp') . '</th><th>' . esc_html__('Run', 'securitywp') . '</th></tr></thead><tbody>';
 
-      echo '<div class="securitywp-row">';
-      echo '<a href="#" class="button button-secondary" id="securitywp-scan-btn">' . esc_html__('Run scan now', 'securitywp') . '</a>';
-      echo '<span class="securitywp-status" id="securitywp-scan-status">' . esc_html__('Idle', 'securitywp') . '</span>';
+      echo '<tr>';
+      echo '<td><strong>' . esc_html__('Generate baseline', 'securitywp') . '</strong><br><span style="color:#646970">' . esc_html__('Creates a snapshot of current files for future comparisons.', 'securitywp') . '</span></td>';
+      echo '<td><span class="securitywp-status" id="securitywp-baseline-status">' . esc_html($baselineExists ? __('Baseline exists', 'securitywp') : __('No baseline yet', 'securitywp')) . '</span></td>';
+      echo '<td><a href="#" class="button button-secondary" id="securitywp-baseline-btn">' . esc_html__('Run', 'securitywp') . '</a></td>';
+      echo '</tr>';
+
+      echo '<tr>';
+      echo '<td><strong>' . esc_html__('Run scan now', 'securitywp') . '</strong><br><span style="color:#646970">' . esc_html__('Compares current files with baseline and reports changes.', 'securitywp') . '</span></td>';
+      echo '<td><span class="securitywp-status" id="securitywp-scan-status">' . esc_html__('Idle', 'securitywp') . '</span></td>';
+      echo '<td><a href="#" class="button button-secondary" id="securitywp-scan-btn">' . esc_html__('Run', 'securitywp') . '</a></td>';
+      echo '</tr>';
+
+      echo '</tbody></table>';
+
+      echo '<div style="margin-top:12px" class="securitywp-card">';
+      echo '<h2>' . esc_html__('What this prevents', 'securitywp') . '</h2>';
+      echo '<p style="color:#646970">' . esc_html__('Integrity scanning helps detect suspicious file changes (malware, backdoors, unexpected edits).', 'securitywp') . '</p>';
       echo '</div>';
     } elseif ($tab === 'updates') {
       echo '<p style="color:#646970">' . esc_html__('Check for updates, view current version, and learn how to contribute.', 'securitywp') . '</p>';
