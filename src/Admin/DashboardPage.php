@@ -48,7 +48,7 @@ final class DashboardPage {
     $score = (int) round(($okCount / max(1, $total)) * 100);
 
     echo '<div class="wrap securitywp-wrap">';
-    echo '<h1>' . esc_html__('SecurityWP', 'securitywp') . '</h1>';
+    echo '<h1>' . esc_html__('BCM Security', 'securitywp') . '</h1>';
 
     echo '<div class="securitywp-card">';
     echo '<h2>' . esc_html__('Security overview', 'securitywp') . '</h2>';

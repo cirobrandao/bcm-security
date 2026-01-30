@@ -51,7 +51,7 @@ final class EventsPage {
 
     echo '<div class="wrap securitywp-wrap">';
     echo '<h1>' . esc_html__('Security Events', 'securitywp') . '</h1>';
-    echo '<p style="max-width: 1000px">' . esc_html__('This page shows recent security-related events detected by SecurityWP. Use filters to find what you need.', 'securitywp') . '</p>';
+    echo '<p style="max-width: 1000px">' . esc_html__('This page shows recent security-related events detected by BCM Security. Use filters to find what you need.', 'securitywp') . '</p>';
 
     if (!empty($_GET['cleared'])) {
       echo '<div class="notice notice-success"><p>' . esc_html__('Log cleared.', 'securitywp') . '</p></div>';

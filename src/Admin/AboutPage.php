@@ -19,7 +19,7 @@ final class AboutPage {
     // About card
     echo '<div class="securitywp-card">';
     echo '<h2>' . esc_html__('About', 'securitywp') . '</h2>';
-    echo '<p>' . esc_html__('SecurityWP is an open-source WordPress security plugin scaffold. It provides hardening toggles, login protection, integrity scanning, and alerts.', 'securitywp') . '</p>';
+    echo '<p>' . esc_html__('BCM Security is an open-source WordPress security plugin scaffold. It provides hardening toggles, login protection, integrity scanning, and alerts.', 'securitywp') . '</p>';
     echo '<p><strong>' . esc_html__('Installed version:', 'securitywp') . '</strong> ' . esc_html(defined('SECURITYWP_VERSION') ? SECURITYWP_VERSION : '-') . '</p>';
     echo '<p style="color:#646970">' . esc_html__('This page is meant to help you keep the plugin updated and collaborate with the project.', 'securitywp') . '</p>';
     echo '</div>';
@@ -39,7 +39,7 @@ final class AboutPage {
 
     echo '<div class="securitywp-card" style="margin-top:16px">';
     echo '<h2>' . esc_html__('Updates', 'securitywp') . '</h2>';
-    echo '<p>' . esc_html__('SecurityWP can check for updates via GitHub Releases. To distribute updates through WordPress update UI, publish a new Release with a semantic version tag (example: 0.5.3).', 'securitywp') . '</p>';
+    echo '<p>' . esc_html__('BCM Security can check for updates via GitHub Releases. To distribute updates through WordPress update UI, publish a new Release with a semantic version tag (example: 0.5.3).', 'securitywp') . '</p>';
     echo '<p><a class="button button-secondary" href="' . esc_url($repo) . '" target="_blank" rel="noopener noreferrer">' . esc_html__('Open GitHub', 'securitywp') . '</a></p>';
     echo '</div>';
 

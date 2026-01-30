@@ -1,4 +1,4 @@
-=== SecurityWP ===
+=== BCM Security ===
 Contributors: cirobrandao
 Tags: security, hardening
 Requires at least: 6.0
@@ -11,12 +11,12 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 A WordPress security plugin (scaffold) with login protection, REST/XML-RPC hardening, integrity scanning, and alerts.
 
 == Description ==
-SecurityWP aims to provide hardening toggles and security checks, similar in spirit to plugins like Jetpack/Wordfence, but lightweight and customizable.
+BCM Security aims to provide hardening toggles and security checks, similar in spirit to plugins like Jetpack/Wordfence, but lightweight and customizable.
 
 == Installation ==
 1. Upload the plugin folder to /wp-content/plugins/securitywp/
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to Settings → SecurityWP.
+3. Go to Settings → BCM Security.
 4. Generate a baseline and optionally run a scan.
 
 == Changelog ==

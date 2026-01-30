@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: SecurityWP 0.2.1\n"
+"Project-Id-Version: BCM Security 0.2.1\n"
 "POT-Creation-Date: 2026-01-30 00:00+0000\n"
 "PO-Revision-Date: 2026-01-30 00:00+0000\n"
 "Last-Translator: cirobrandao\n"
@@ -323,8 +323,8 @@ msgstr "Precisa de atenção"
 msgid "Configure settings"
 msgstr "Configurar"
 
-msgid "SecurityWP Settings"
-msgstr "Configurações do SecurityWP"
+msgid "BCM Security Settings"
+msgstr "Configurações do BCM Security"
 
 msgid "Back to Dashboard"
 msgstr "Voltar ao Painel"
@@ -452,8 +452,8 @@ msgstr ""
 "vez) se o slug não funcionar de imediato."
 
 
-msgid "SecurityWP — Information & Updates"
-msgstr "SecurityWP — Informações e Atualizações"
+msgid "BCM Security — Information & Updates"
+msgstr "BCM Security — Informações e Atualizações"
 
 
 msgid "Installed version:"
@@ -494,10 +494,6 @@ msgstr "Abrir GitHub"
 
 msgid "BCM Security"
 msgstr "BCM Security"
-
-
-msgid "BCM Security — Information & Updates"
-msgstr "BCM Security — Informações e Atualizações"
 
 
 msgid "About BCM Security"
