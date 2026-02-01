@@ -7,12 +7,16 @@ final class AboutPage {
       return;
     }
 
+    echo "<div class=\"wrap securitywp-wrap\">";
+    echo "<h1>" . esc_html__('BCM Security — Information & Updates', 'securitywp') . "</h1>";
+    self::render_panel();
+    echo "</div>";
+  }
+
+  public static function render_panel(): void {
     $repo = defined('SECURITYWP_GITHUB_URL') ? SECURITYWP_GITHUB_URL : 'https://github.com/cirobrandao/bcm-security';
     $platform = defined('SECURITYWP_PLATFORM_URL') ? SECURITYWP_PLATFORM_URL : 'https://dev.zone.net.br/wordpress';
     $contrib = defined('SECURITYWP_CONTRIBUTION_URL') ? SECURITYWP_CONTRIBUTION_URL : 'https://bcmnetwork.com.br/contribution';
-
-    echo '<div class="wrap securitywp-wrap">';
-    echo '<h1>' . esc_html__('BCM Security — Information & Updates', 'securitywp') . '</h1>';
 
     echo '<div class="securitywp-grid">';
 
@@ -43,8 +47,5 @@ final class AboutPage {
     echo '<p><a class="button button-secondary" href="' . esc_url($repo) . '" target="_blank" rel="noopener noreferrer">' . esc_html__('Open GitHub', 'securitywp') . '</a></p>';
     echo '</div>';
 
-    echo '<p><a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp')) . '">' . esc_html__('Back to Settings', 'securitywp') . '</a></p>';
-
-    echo '</div>';
   }
 }

@@ -14,11 +14,22 @@ final class EventsPage {
 
     delete_option('securitywp_log');
 
-    wp_safe_redirect(admin_url('admin.php?page=securitywp-events&cleared=1'));
+    wp_safe_redirect(admin_url('admin.php?page=securitywp&tab=events&cleared=1'));
     exit;
   }
 
   public static function render_page(): void {
+    if (!current_user_can('manage_options')) {
+      return;
+    }
+
+    echo "<div class=\"wrap securitywp-wrap\">";
+    echo "<h1>" . esc_html__('Security Events', 'securitywp') . "</h1>";
+    self::render_panel();
+    echo "</div>";
+  }
+
+  public static function render_panel(): void {
     if (!current_user_can('manage_options')) {
       return;
     }
@@ -48,9 +59,6 @@ final class EventsPage {
       }
       return true;
     }));
-
-    echo '<div class="wrap securitywp-wrap">';
-    echo '<h1>' . esc_html__('Security Events', 'securitywp') . '</h1>';
     echo '<p style="max-width: 1000px">' . esc_html__('This page shows recent security-related events detected by BCM Security. Use filters to find what you need.', 'securitywp') . '</p>';
 
     if (!empty($_GET['cleared'])) {
@@ -59,7 +67,7 @@ final class EventsPage {
 
     // Filters
     echo '<form method="get" style="margin: 12px 0">';
-    echo '<input type="hidden" name="page" value="securitywp-events">';
+    echo '<input type="hidden" name="page" value="securitywp"><input type="hidden" name="tab" value="events">';
 
     echo '<label style="margin-right: 10px">' . esc_html__('Level', 'securitywp') . ' ';
     echo '<select name="level">';
@@ -78,8 +86,7 @@ final class EventsPage {
 
     // Actions
     echo '<p>';
-    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp')) . '">' . esc_html__('Back to Settings', 'securitywp') . '</a> ';
-    echo '<a class="button button-secondary" href="' . esc_url(wp_nonce_url(admin_url('admin-post.php?action=securitywp_clear_log'), 'securitywp_clear_log')) . '">' . esc_html__('Clear log', 'securitywp') . '</a>';
+        echo '<a class="button button-secondary" href="' . esc_url(wp_nonce_url(admin_url('admin-post.php?action=securitywp_clear_log'), 'securitywp_clear_log')) . '">' . esc_html__('Clear log', 'securitywp') . '</a>';
     echo '</p>';
 
     echo '<div class="securitywp-card">';
@@ -120,7 +127,6 @@ final class EventsPage {
     }
 
     echo '</tbody></table>';
-    echo '</div>';
     echo '</div>';
   }
 }

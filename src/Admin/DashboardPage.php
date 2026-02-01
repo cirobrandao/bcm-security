@@ -7,6 +7,13 @@ final class DashboardPage {
       return;
     }
 
+    echo '<div class="wrap securitywp-wrap">';
+    echo '<h1>' . esc_html__('BCM Security', 'securitywp') . '</h1>';
+    self::render_panel();
+    echo '</div>';
+  }
+
+  public static function render_panel(): void {
     $s = get_option('securitywp_settings', []);
 
     $checks = [];
@@ -47,9 +54,6 @@ final class DashboardPage {
     }
     $score = (int) round(($okCount / max(1, $total)) * 100);
 
-    echo '<div class="wrap securitywp-wrap">';
-    echo '<h1>' . esc_html__('BCM Security', 'securitywp') . '</h1>';
-
     echo '<div class="securitywp-card">';
     echo '<h2>' . esc_html__('Security overview', 'securitywp') . '</h2>';
     echo '<p>' . esc_html(sprintf(__('Score: %d/100', 'securitywp'), $score)) . '</p>';
@@ -68,8 +72,8 @@ final class DashboardPage {
 
     echo '<p style="margin-top:12px">';
     echo '<a class="button button-primary" href="' . esc_url(admin_url('admin.php?page=securitywp-settings')) . '">' . esc_html__('Configure settings', 'securitywp') . '</a> ';
-    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp-events')) . '">' . esc_html__('View Security Events', 'securitywp') . '</a> ';
-    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp-about')) . '">' . esc_html__('About / Links', 'securitywp') . '</a>';
+    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp&tab=events')) . '">' . esc_html__('View Security Events', 'securitywp') . '</a> ';
+    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp&tab=about')) . '">' . esc_html__('About / Links', 'securitywp') . '</a>';
     echo '</p>';
 
     echo '</div>';
@@ -85,8 +89,6 @@ final class DashboardPage {
       echo '<li>' . esc_html__('Last integrity scan:', 'securitywp') . ' <code>' . esc_html__('Never', 'securitywp') . '</code></li>';
     }
     echo '</ul>';
-    echo '</div>';
-
     echo '</div>';
   }
 }

@@ -505,8 +505,8 @@ private function add_checkbox(string $key, string $label, string $page, string $
 
     echo '<p style="margin-top:12px">';
     echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp')) . '">' . esc_html__('Back to Dashboard', 'securitywp') . '</a> ';
-    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp-events')) . '">' . esc_html__('Security Events', 'securitywp') . '</a> ';
-    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp-about')) . '">' . esc_html__('About', 'securitywp') . '</a>';
+    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp&tab=events')) . '">' . esc_html__('Security Events', 'securitywp') . '</a> ';
+    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp&tab=about')) . '">' . esc_html__('About', 'securitywp') . '</a>';
     echo '</p>';
 
     echo '</div>';
