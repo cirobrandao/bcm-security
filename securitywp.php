@@ -47,6 +47,7 @@ function autoload_securitywp(): void {
   require_once SECURITYWP_PLUGIN_DIR . 'src/Admin/SettingsPage.php';
   require_once SECURITYWP_PLUGIN_DIR . 'src/Admin/EventsPage.php';
   require_once SECURITYWP_PLUGIN_DIR . 'src/Admin/AboutPage.php';
+  require_once SECURITYWP_PLUGIN_DIR . 'src/Admin/HubPage.php';
   require_once SECURITYWP_PLUGIN_DIR . 'src/Admin/Menu.php';
 
   require_once SECURITYWP_PLUGIN_DIR . 'src/Plugin.php';
