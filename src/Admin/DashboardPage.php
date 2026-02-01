@@ -70,11 +70,6 @@ final class DashboardPage {
     }
     echo '</tbody></table>';
 
-    echo '<p style="margin-top:12px">';
-    echo '<a class="button button-primary" href="' . esc_url(admin_url('admin.php?page=securitywp-settings')) . '">' . esc_html__('Configure settings', 'securitywp') . '</a> ';
-    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp&tab=events')) . '">' . esc_html__('View Security Events', 'securitywp') . '</a> ';
-    echo '<a class="button button-secondary" href="' . esc_url(admin_url('admin.php?page=securitywp&tab=about')) . '">' . esc_html__('About / Links', 'securitywp') . '</a>';
-    echo '</p>';
 
     echo '</div>';
 
