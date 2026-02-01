@@ -171,9 +171,6 @@ private function add_checkbox(string $key, string $label, string $page, string $
         echo '</div>';
         self::render_field_help($helpTitle, $helpBody, $helpBullets);
         echo '</div>';
-        echo '</div>';
-        self::render_field_help($helpTitle, $helpBody, $helpBullets);
-        echo '</div>';
       },
       $page,
       $section
@@ -204,9 +201,6 @@ private function add_checkbox(string $key, string $label, string $page, string $
           $max,
           $depAttr
         );
-        echo '</div>';
-        self::render_field_help($helpTitle, $helpBody, $helpBullets);
-        echo '</div>';
         echo '</div>';
         self::render_field_help($helpTitle, $helpBody, $helpBullets);
         echo '</div>';
